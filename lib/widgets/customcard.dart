@@ -19,6 +19,8 @@ class _CheckboxBottomSheetState extends State<CheckboxBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
       width: 150,
@@ -40,8 +42,8 @@ class _CheckboxBottomSheetState extends State<CheckboxBottomSheet> {
               });
             },
             child: Container(
-              height: 40,
-              width: 40,
+              height: screenHeight * 0.05,
+              width: screenWidth * 0.08,
               decoration: BoxDecoration(
                 color: _value ? Color(0xff3c2f35) : Colors.transparent,
                 shape: BoxShape.circle,
@@ -65,6 +67,7 @@ class _CheckboxBottomSheetState extends State<CheckboxBottomSheet> {
           ),
           SizedBox(height: 10.0),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               RichText(
                 text: TextSpan(
@@ -98,7 +101,7 @@ class _CheckboxBottomSheetState extends State<CheckboxBottomSheet> {
           Text(
             "See calculations",
             style: TextStyle(
-                fontSize: 10.0,
+                fontSize: 11.0,
                 decoration: TextDecoration.underline,
                 color: Color.fromARGB(255, 178, 176, 176)),
           ),

@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class CircularSlider extends StatefulWidget {
-  const CircularSlider({super.key});
+  final void Function(double selectedValue) onValueSelected;
+
+  const CircularSlider({required this.onValueSelected, Key? key}) : super(key: key);
 
   @override
   State<CircularSlider> createState() => _CircularSliderState();
 }
 
 class _CircularSliderState extends State<CircularSlider> {
-  double _volumeValue = 0;
-
+  double _volumeValue = 30;
   void onVolumeChanged(double value) {
     setState(() {
       _volumeValue = value;
+      widget.onValueSelected(_volumeValue);
       print(_volumeValue);
     });
   }
