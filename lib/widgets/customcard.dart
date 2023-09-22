@@ -23,7 +23,7 @@ class _CheckboxBottomSheetState extends State<CheckboxBottomSheet> {
     final screenHeight = MediaQuery.of(context).size.height;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
-      width: 150,
+      width: screenWidth * 0.4,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(
           20.0,

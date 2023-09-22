@@ -85,8 +85,20 @@ class _FirstPageState extends State<FirstPage> {
                 first
                     ? Column(
                         children: [
-                          SizedBox(
-                            height: screenHeight * 0.174,
+                          // SizedBox(
+                          //   height: screenHeight * 0.174,
+                          // ),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                first = false;
+                                second = false;
+                              });
+                            },
+                            child: Container(
+                              color: Colors.transparent,
+                              height: screenHeight * 0.174,
+                            ),
                           ),
                           Container(
                             decoration: BoxDecoration(
@@ -312,7 +324,7 @@ class _FirstPageState extends State<FirstPage> {
                             child: Column(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(20.0),
+                                  padding: const EdgeInsets.all(25.0),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -331,9 +343,9 @@ class _FirstPageState extends State<FirstPage> {
                                       Container(
                                         height: 190,
                                         width: double.infinity,
-                                        margin: EdgeInsets.all(8.0),
-                                        padding: EdgeInsets.all(4),
                                         child: ListView.builder(
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 10),
                                             //   clipBehavior: Clip.antiAlias,
                                             itemCount: cards.length,
                                             physics: BouncingScrollPhysics(),
@@ -342,9 +354,13 @@ class _FirstPageState extends State<FirstPage> {
                                               return cards[i];
                                             }),
                                       ),
-                                      ButtonBelowCard(
-                                        title: "Create your own plan",
-                                        width: screenWidth * 0.4,
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 8.0),
+                                        child: ButtonBelowCard(
+                                          title: "Create your own plan",
+                                          width: screenWidth * 0.4,
+                                        ),
                                       )
                                     ],
                                   ),
